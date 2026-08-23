@@ -1,0 +1,156 @@
+/* Variables CSS & Design System - Haut contraste (WCAG) */
+:root {
+    --primary: #1a365d;
+    --primary-hover: #2b6cb0;
+    --secondary: #2f855a;
+    --secondary-hover: #276749;
+    --bg-light: #f7fafc;
+    --text-dark: #2d3748;
+    --text-light: #4a5568;
+    --white: #ffffff;
+    --focus-ring: #e53e3e;
+    --radius: 8px;
+    --transition: 0.2s ease-in-out;
+}
+
+/* Reset Eco-conçu et A11y */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Gestion du focus universel */
+:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 3px;
+}
+
+/* Typographie fluide */
+h1, h2, h3 { line-height: 1.2; margin-bottom: 1rem; color: var(--primary); }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* Header */
+.header {
+    background: var(--white);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo { font-size: 1.5rem; margin: 0; }
+
+/* Boutons - Cibles tactiles > 24px */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background var(--transition);
+    min-height: 44px;
+    min-width: 44px;
+}
+.btn-primary { background: var(--primary); color: var(--white); }
+.btn-primary:hover { background: var(--primary-hover); }
+.btn-secondary { background: var(--secondary); color: var(--white); }
+.btn-secondary:hover { background: var(--secondary-hover); }
+
+/* Hero Section */
+.hero { padding: 4rem 1.5rem; text-align: center; }
+.hero p { font-size: 1.2rem; color: var(--text-light); max-width: 800px; margin: 0 auto; }
+
+/* Système d'onglets (Tabs) */
+.tabs-section { margin-bottom: 4rem; }
+.tab-list {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 2px solid #e2e8f0;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+.tab-btn {
+    background: transparent;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-light);
+    cursor: pointer;
+    border-bottom: 4px solid transparent;
+    transition: color var(--transition), border-color var(--transition);
+}
+.tab-btn[aria-selected="true"] {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+.tab-content {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.tab-content[hidden] { display: none; }
+.feature-list { list-style: none; }
+.feature-list li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+}
+.feature-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--secondary);
+    font-weight: bold;
+}
+
+/* Call to Action & Footer */
+.cta-section {
+    text-align: center;
+    background: var(--primary);
+    color: var(--white);
+    padding: 3rem 1.5rem;
+    border-radius: var(--radius);
+    margin-bottom: 2rem;
+}
+.cta-section h2 { color: var(--white); }
+.footer { text-align: center; padding: 2rem 0; color: var(--text-light); font-size: 0.9rem; }
+
+/* Toast PWA */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--text-dark);
+    color: var(--white);
+    padding: 1rem;
+    border-radius: var(--radius);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1000;
+}
+.toast button { background: var(--secondary); border: none; color: white; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; }
+
+/* Réduction des mouvements (OS preference) */
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+}
