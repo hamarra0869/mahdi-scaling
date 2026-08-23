@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résidence Mahdi | Bouna, Côte d'Ivoire</title>
+    <meta name="description" content="Hébergement de haut standing à Bouna. Sécurité UNDSS pour professionnels et séjours écologiques pour safaris au Parc de la Comoé.">
+    
+    <!-- Content Security Policy (OWASP Strict) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; manifest-src 'self'; worker-src 'self';">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a365d">
+    
+    <!-- Pré-allocation d'espace pour éviter le CLS -->
+    <style>
+        .hero { min-height: 40vh; }
+        .tab-content { min-height: 300px; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-wrapper">
+            <h1 class="logo">Résidence Mahdi</h1>
+            <a href="#contact" class="btn btn-primary" aria-label="Réserver votre séjour">Réserver</a>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="hero container">
+            <h2>L'Excellence et la Sécurité à Bouna</h2>
+            <p>Le point de chute idéal pour vos missions humanitaires et vos explorations écologiques en Côte d'Ivoire.</p>
+        </section>
+
+        <section class="tabs-section container">
+            <!-- Système d'onglets accessible (a11y) -->
+            <div class="tab-list" role="tablist" aria-label="Offres de la résidence">
+                <button role="tab" aria-selected="true" aria-controls="panel-pro" id="tab-pro" class="tab-btn active">
+                    Professionnels & ONU
+                </button>
+                <button role="tab" aria-selected="false" aria-controls="panel-eco" id="tab-eco" class="tab-btn">
+                    Écotourisme & Safari
+                </button>
+            </div>
+
+            <!-- Panel 1 : Pros / ONU -->
+            <div id="panel-pro" role="tabpanel" tabindex="0" aria-labelledby="tab-pro" class="tab-content active">
+                <h3>Missions Pro : Sécurité & Fiabilité Absolues</h3>
+                <ul class="feature-list">
+                    <li><strong>Sécurité maximale :</strong> Clôture blindée et domaine strictement conforme aux normes de sécurité UNDSS.</li>
+                    <li><strong>Prévention santé :</strong> Détecteurs de monoxyde de carbone dans tous les espaces pour éviter les accidents de gaz.</li>
+                    <li><strong>Autonomie énergétique :</strong> Groupe électrogène à déclenchement automatique pour parer à toute coupure de courant.</li>
+                    <li><strong>Connectivité infaillible :</strong> Double connexion internet (Fibre optique + liaison Satellite de secours) pour travailler sans interruption.</li>
+                </ul>
+            </div>
+
+            <!-- Panel 2 : Écotourisme -->
+            <div id="panel-eco" role="tabpanel" tabindex="0" aria-labelledby="tab-eco" class="tab-content" hidden>
+                <h3>Écotourisme : Safari Clé en Main au Parc de la Comoé</h3>
+                <ul class="feature-list">
+                    <li><strong>Aventure sur mesure :</strong> Pack "Safari Clé en Main" incluant la location d'un 4x4 robuste et l'accompagnement par un guide agréé.</li>
+                    <li><strong>Nuits paisibles :</strong> Moustiquaires de haute qualité installées pour une protection totale contre le paludisme.</li>
+                    <li><strong>Hydratation sécurisée :</strong> Système de distribution d'eau ultra-filtrée sur place pour éviter tout risque de maladies hydriques.</li>
+                    <li><strong>Immersion et confort :</strong> Reposez-vous dans un cadre apaisant après vos journées d'exploration.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact" class="cta-section container">
+            <h2>Préparez votre arrivée à Bouna</h2>
+            <p>Notre équipe est à votre disposition pour adapter votre séjour à vos exigences.</p>
+            <button class="btn btn-secondary" id="contact-btn">Nous contacter</button>
+        </section>
+    </main>
+
+    <footer class="footer container">
+        <p>&copy; 2026 Résidence Mahdi, Bouna, Côte d'Ivoire. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Toast de mise à jour PWA -->
+    <div id="pwa-toast" class="toast" aria-live="polite" hidden>
+        Une nouvelle version est disponible. 
+        <button id="pwa-refresh">Mettre à jour</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
